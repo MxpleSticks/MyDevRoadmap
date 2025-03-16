@@ -9,7 +9,7 @@
 
 ### Month 1-2: JavaScript Fundamentals
 - **Week 1-3**: Core JavaScript concepts
-  - Resource: [MDN JavaScript Guide](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide)
+  - Resource: [MDN JavaScript Guide](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Introduction)
   - Book: "Eloquent JavaScript" by Marijn Haverbeke (free online)
   - Course: [The Modern JavaScript Tutorial](https://javascript.info/)
 

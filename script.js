@@ -1,6 +1,31 @@
 document.addEventListener("DOMContentLoaded", () => {
     // Load checkbox states
     const checkboxes = document.querySelectorAll("input[type='checkbox']");
+    const progressImage = document.getElementById("language-progress");
+
+    // Define language sections and their checkbox IDs
+    const languageSections = {
+        javascript: [
+            "js-w1-3", "js-w4-8", "node-w1-4", "node-w5-8", "js-proj-w1-4", "js-proj-w5-8"
+        ],
+        postgresql: [
+            "pg-w1-2", "pg-w3-4", "pg-int-w1-4", "pg-int-w5-8", "pg-adv-w1-4", "pg-adv-w5-8"
+        ],
+        ruby: [
+            "ruby-w1-4", "rails-w1-4", "rails-w5-8", "ruby-adv-w1-4", "ruby-adv-w5-8"
+        ],
+        java: [
+            "java-w1-4", "java-w5-8", "java-ent-w1-6", "java-ent-w7-12", "java-adv-w1-6", "java-adv-w7-12"
+        ],
+        cpp: [
+            "cpp-w1-8", "cpp-int-w1-6", "cpp-int-w7-12", "cpp-adv-w1-6", "cpp-adv-w7-12"
+        ],
+        swift: [
+            "swift-w1-8", "swift-ios-w1-6", "swift-ios-w7-12", "swift-adv-w1-6", "swift-adv-w7-12"
+        ]
+    };
+
+    // Load saved checkbox states and update image
     checkboxes.forEach(checkbox => {
         const savedState = localStorage.getItem(checkbox.id);
         if (savedState === "true") {
@@ -8,6 +33,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }
         checkbox.addEventListener("change", () => {
             localStorage.setItem(checkbox.id, checkbox.checked);
+            updateProgressImage();
         });
     });
 
@@ -34,60 +60,26 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 
-    // Share Progress Functionality
-    const shareButton = document.querySelector(".share-progress");
-    const shareModal = document.getElementById("shareModal");
-    const closeModal = document.getElementById("closeModal");
-    const shareSummary = document.getElementById("shareSummary");
-    const copyShare = document.getElementById("copyShare");
+    // Function to update the progress image
+    function updateProgressImage() {
+        let completedLanguages = 0;
 
-    shareButton.addEventListener("click", () => {
-        // Generate share summary
-        let summary = "My Programming Roadmap Progress (as of " + new Date().toLocaleDateString() + "):\n\n";
-
-        // Count completed tasks per section
-        const sections = document.querySelectorAll("section[id]");
-        sections.forEach(section => {
-            const sectionTitle = section.querySelector("h2").textContent;
-            const checkboxesInSection = section.querySelectorAll("input[type='checkbox']");
-            const totalTasks = checkboxesInSection.length;
-            const completedTasks = Array.from(checkboxesInSection).filter(cb => cb.checked).length;
-            
-            if (totalTasks > 0) {
-                summary += `${sectionTitle}: ${completedTasks}/${totalTasks} tasks completed\n`;
+        // Check each language section
+        for (const [language, checkboxIds] of Object.entries(languageSections)) {
+            const allChecked = checkboxIds.every(id => {
+                const checkbox = document.getElementById(id);
+                return checkbox && checkbox.checked;
+            });
+            if (allChecked) {
+                completedLanguages++;
             }
-        });
-
-        // Add reflections if present
-        summary += "\nReflections:\n";
-        textareas.forEach(textarea => {
-            if (textarea.value.trim()) {
-                const sectionTitle = textarea.closest("section").querySelector("h2").textContent;
-                summary += `${sectionTitle}:\n${textarea.value.trim()}\n\n`;
-            }
-        });
-
-        // Display summary in modal
-        shareSummary.value = summary;
-        shareModal.style.display = "block";
-    });
-
-    // Close modal
-    closeModal.addEventListener("click", () => {
-        shareModal.style.display = "none";
-    });
-
-    // Copy to clipboard
-    copyShare.addEventListener("click", () => {
-        shareSummary.select();
-        document.execCommand("copy");
-        alert("Progress copied to clipboard! Share it with your friends or on social media.");
-    });
-
-    // Close modal when clicking outside
-    window.addEventListener("click", (e) => {
-        if (e.target === shareModal) {
-            shareModal.style.display = "none";
         }
-    });
+
+        // Update image source based on completed languages
+        progressImage.src = `lang${completedLanguages}.jpg`;
+        progressImage.alt = `Completed ${completedLanguages} languages`;
+    }
+
+    // Initial call to set the image based on loaded states
+    updateProgressImage();
 });

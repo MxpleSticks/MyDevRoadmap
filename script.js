@@ -22,6 +22,9 @@ document.addEventListener("DOMContentLoaded", () => {
         ],
         swift: [
             "swift-w1-8", "swift-ios-w1-6", "swift-ios-w7-12", "swift-adv-w1-6", "swift-adv-w7-12"
+        ],
+        python: [
+            "python-w1-52"
         ]
     };
 

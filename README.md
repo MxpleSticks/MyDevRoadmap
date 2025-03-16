@@ -12,6 +12,16 @@
   - Topics: Closures, prototypal inheritance, async programming
   - Course: [JavaScript: Understanding the Weird Parts](https://www.udemy.com/course/understand-javascript/)
   - Practice: [Exercism JavaScript track](https://exercism.org/tracks/javascript)
+ 
+**Reflection**
+```
+My thoughts this week:
+- What I learned:
+- What challenged me: 
+- How I feel about my progress:
+- Languge Section Review:
+- What to focus on next:
+```
 
 ### Month 3-5: Node.js
 - **Week 1-4**: Node.js basics
@@ -23,6 +33,16 @@
   - Tutorial: [Express.js Guide](https://expressjs.com/en/guide/routing.html)
   - Project: Build a RESTful API
   - Course: [The Complete Node.js Developer Course](https://www.udemy.com/course/the-complete-nodejs-developer-course-2/)
+ 
+**Reflection**
+```
+My thoughts this week:
+- What I learned:
+- What challenged me: 
+- How I feel about my progress:
+- Languge Section Review:
+- What to focus on next:
+```
 
 ### Month 6-7: Real-world projects
 - **Week 1-4**: Full-stack application
@@ -33,6 +53,16 @@
   - Learn: Jest, Mocha, or Jasmine for testing
   - Deploy: Heroku, Vercel, or AWS
   - Resource: [Testing Node.js Applications](https://blog.logrocket.com/testing-node-js-applications/)
+ 
+**Reflection**
+```
+My thoughts this week:
+- What I learned:
+- What challenged me: 
+- How I feel about my progress:
+- Languge Section Review:
+- What to focus on next:
+```
 
 ## 2. PostgreSQL – 3-5 months
 
@@ -44,6 +74,16 @@
 - **Week 3-4**: PostgreSQL installation and setup
   - Resource: [PostgreSQL Documentation](https://www.postgresql.org/docs/)
   - Practice: [PostgreSQL Exercises](https://pgexercises.com/)
+ 
+**Reflection**
+```
+My thoughts this week:
+- What I learned:
+- What challenged me: 
+- How I feel about my progress:
+- Languge Section Review:
+- What to focus on next:
+```
 
 ### Month 2-3: Intermediate PostgreSQL
 - **Week 1-4**: Complex queries and optimization
@@ -54,6 +94,16 @@
 - **Week 5-8**: Database design and normalization
   - Resource: [Database Design Tutorial](https://www.lucidchart.com/pages/database-diagram/database-design)
   - Project: Design a database for an application
+ 
+**Reflection**
+```
+My thoughts this week:
+- What I learned:
+- What challenged me: 
+- How I feel about my progress:
+- Languge Section Review:
+- What to focus on next:
+```
 
 ### Month 4-5: Advanced PostgreSQL
 - **Week 1-4**: Performance tuning and administration
@@ -64,6 +114,16 @@
 - **Week 5-8**: Integration with programming languages
   - Practice: Connect PostgreSQL with Node.js
   - Resource: [node-postgres documentation](https://node-postgres.com/)
+ 
+**Reflection**
+```
+My thoughts this week:
+- What I learned:
+- What challenged me: 
+- How I feel about my progress:
+- Languge Section Review:
+- What to focus on next:
+```
 
 ## 3. Ruby – 3-5 months
 
@@ -72,12 +132,32 @@
   - Resource: [Ruby in 20 Minutes](https://www.ruby-lang.org/en/documentation/quickstart/)
   - Book: "The Well-Grounded Rubyist" by David A. Black
   - Course: [Ruby Monk](https://rubymonk.com/)
+ 
+**Reflection**
+```
+My thoughts this week:
+- What I learned:
+- What challenged me: 
+- How I feel about my progress:
+- Languge Section Review:
+- What to focus on next:
+```
 
 ### Month 2-3: Ruby on Rails
 - **Week 1-4**: Rails basics
   - Resource: [Ruby on Rails Guides](https://guides.rubyonrails.org/)
   - Tutorial: [Rails Tutorial](https://www.railstutorial.org/book) by Michael Hartl
   - Course: [The Complete Ruby on Rails Developer Course](https://www.udemy.com/course/the-complete-ruby-on-rails-developer-course/)
+ 
+**Reflection**
+```
+My thoughts this week:
+- What I learned:
+- What challenged me: 
+- How I feel about my progress:
+- Languge Section Review:
+- What to focus on next:
+```
 
 - **Week 5-8**: Intermediate Rails
   - Topics: ActiveRecord, testing with RSpec
@@ -89,10 +169,30 @@
   - Topics: Action Cable, Sidekiq, API development
   - Resource: [Rails API Documentation](https://api.rubyonrails.org/)
   - Course: [Advanced Rails](https://www.pluralsight.com/courses/ruby-rails-4-advanced)
+ 
+**Reflection**
+```
+My thoughts this week:
+- What I learned:
+- What challenged me: 
+- How I feel about my progress:
+- Languge Section Review:
+- What to focus on next:
+```
 
 - **Week 5-8**: Ruby gems and metaprogramming
   - Book: "Metaprogramming Ruby" by Paolo Perrotta
   - Project: Contribute to an open-source Ruby gem
+ 
+**Reflection**
+```
+My thoughts this week:
+- What I learned:
+- What challenged me: 
+- How I feel about my progress:
+- Languge Section Review:
+- What to focus on next:
+```
 
 ## 4. Java – 6-9 months
 
@@ -106,6 +206,16 @@
   - Topics: Collections, I/O, multi-threading
   - Resource: [Baeldung Java tutorials](https://www.baeldung.com/)
   - Practice: [Coding Bat Java](https://codingbat.com/java)
+ 
+**Reflection**
+```
+My thoughts this week:
+- What I learned:
+- What challenged me: 
+- How I feel about my progress:
+- Languge Section Review:
+- What to focus on next:
+```
 
 ### Month 3-5: Java Enterprise
 - **Week 1-6**: Spring Framework
@@ -117,6 +227,16 @@
   - Resource: [Jakarta EE Tutorial](https://jakarta.ee/learn/)
   - Book: "Beginning Jakarta EE" by Peter Späth
   - Project: Develop a web application with Servlets and JSP
+ 
+**Reflection**
+```
+My thoughts this week:
+- What I learned:
+- What challenged me: 
+- How I feel about my progress:
+- Languge Section Review:
+- What to focus on next:
+```
 
 ### Month 6-9: Advanced Java
 - **Week 1-6**: Design patterns and architecture
@@ -128,6 +248,16 @@
   - Topics: JUnit, JMeter, profiling
   - Resource: [Java Performance Tuning](https://www.javaperformancetuning.com/)
   - Project: Performance optimization of a Java application
+ 
+**Reflection**
+```
+My thoughts this week:
+- What I learned:
+- What challenged me: 
+- How I feel about my progress:
+- Languge Section Review:
+- What to focus on next:
+```
 
 ## 5. C++ – 6-9 months
 
@@ -136,12 +266,32 @@
   - Resource: [C++ Reference](https://en.cppreference.com/w/)
   - Book: "C++ Primer" by Stanley Lippman
   - Course: [C++ Tutorial for Complete Beginners](https://www.udemy.com/course/free-learn-c-tutorial-beginners/)
+ 
+**Reflection**
+```
+My thoughts this week:
+- What I learned:
+- What challenged me: 
+- How I feel about my progress:
+- Languge Section Review:
+- What to focus on next:
+```
 
 ### Month 3-5: Intermediate C++
 - **Week 1-6**: Standard Template Library (STL)
   - Resource: [C++ STL Tutorial](https://www.geeksforgeeks.org/the-c-standard-template-library-stl/)
   - Book: "Effective STL" by Scott Meyers
   - Practice: [Competitive Programming](https://codeforces.com/)
+ 
+**Reflection**
+```
+My thoughts this week:
+- What I learned:
+- What challenged me: 
+- How I feel about my progress:
+- Languge Section Review:
+- What to focus on next:
+```
 
 - **Week 7-12**: Object-oriented programming in C++
   - Topics: Inheritance, polymorphism, encapsulation
@@ -153,6 +303,16 @@
   - Topics: Smart pointers, move semantics
   - Book: "Effective Modern C++" by Scott Meyers
   - Resource: [C++ Core Guidelines](https://isocpp.github.io/CppCoreGuidelines/CppCoreGuidelines)
+ 
+**Reflection**
+```
+My thoughts this week:
+- What I learned:
+- What challenged me: 
+- How I feel about my progress:
+- Languge Section Review:
+- What to focus on next:
+```
 
 - **Week 7-12**: Concurrency and modern C++ features
   - Topics: Threading, async programming, C++17/20 features
@@ -166,12 +326,32 @@
   - Resource: [Swift Documentation](https://swift.org/documentation/)
   - Book: "Swift Programming: The Big Nerd Ranch Guide"
   - Course: [Swift 5 Essential Training](https://www.linkedin.com/learning/swift-5-essential-training)
+ 
+**Reflection**
+```
+My thoughts this week:
+- What I learned:
+- What challenged me: 
+- How I feel about my progress:
+- Languge Section Review:
+- What to focus on next:
+```
 
 ### Month 3-5: iOS Development
 - **Week 1-6**: UIKit and Interface Builder
   - Resource: [iOS Developer Documentation](https://developer.apple.com/documentation/)
   - Course: [iOS & Swift - The Complete iOS App Development Bootcamp](https://www.udemy.com/course/ios-13-app-development-bootcamp/)
   - Project: Build simple iOS apps
+ 
+**Reflection**
+```
+My thoughts this week:
+- What I learned:
+- What challenged me: 
+- How I feel about my progress:
+- Languge Section Review:
+- What to focus on next:
+```
 
 - **Week 7-12**: SwiftUI and Combine
   - Resource: [SwiftUI Tutorials](https://developer.apple.com/tutorials/swiftui/)
@@ -183,11 +363,31 @@
   - Topics: URLSession, Core Data, Core Animation
   - Course: [Advance in App Development with Swift](https://www.coursera.org/learn/ios-app-development-swift-specialization)
   - Project: Build a complex app with multiple features
+ 
+**Reflection**
+```
+My thoughts this week:
+- What I learned:
+- What challenged me: 
+- How I feel about my progress:
+- Languge Section Review:
+- What to focus on next:
+```
 
 - **Week 7-12**: Advanced iOS topics
   - Topics: Push notifications, AR, machine learning
   - Resource: [Apple Developer Videos](https://developer.apple.com/videos/)
   - Project: Integrate advanced iOS features into an app
+ 
+**Reflection**
+```
+My thoughts this week:
+- What I learned:
+- What challenged me: 
+- How I feel about my progress:
+- Languge Section Review:
+- What to focus on next:
+```
 
 ## Python (Passive Learning)
 
@@ -196,6 +396,16 @@
   - Resource: [Python Documentation](https://docs.python.org/3/)
   - Book: "Automate the Boring Stuff with Python" by Al Sweigart
   - Practice: [LeetCode Python Problems](https://leetcode.com/problemset/all/?difficulty=Easy&topicSlugs=python)
+ 
+**Reflection**
+```
+My thoughts this week:
+- What I learned:
+- What challenged me: 
+- How I feel about my progress:
+- Languge Section Review:
+- What to focus on next:
+```
 
 ## After Completing the Roadmap
 

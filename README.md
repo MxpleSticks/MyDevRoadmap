@@ -1,4 +1,4 @@
-<img src="mydevroadmap.jpg" width="600" height="400" />
+<img src="mydevroadmap.jpg" width="650" height="375" />
 
 
 

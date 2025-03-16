@@ -1,6 +1,7 @@
 <img src="mydevroadmap.jpg" width="650" height="375" />
 
 # Comprehensive Programming Learning Roadmap
+You will be completely comfortable using any of these languages after this roadmap
 
 ## 1. JavaScript (Node.js) – 5-7 months
 

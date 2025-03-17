@@ -1,9 +1,8 @@
 document.addEventListener("DOMContentLoaded", () => {
-    // Load checkbox states
     const checkboxes = document.querySelectorAll("input[type='checkbox']");
     const progressImage = document.getElementById("language-progress");
 
-    // Define language sections and their checkbox IDs
+    // Updated language sections without C++
     const languageSections = {
         javascript: [
             "js-w1-3", "js-w4-8", "node-w1-4", "node-w5-8", "js-proj-w1-4", "js-proj-w5-8"
@@ -16,9 +15,6 @@ document.addEventListener("DOMContentLoaded", () => {
         ],
         java: [
             "java-w1-4", "java-w5-8", "java-ent-w1-6", "java-ent-w7-12", "java-adv-w1-6", "java-adv-w7-12"
-        ],
-        cpp: [
-            "cpp-w1-8", "cpp-int-w1-6", "cpp-int-w7-12", "cpp-adv-w1-6", "cpp-adv-w7-12"
         ],
         swift: [
             "swift-w1-8", "swift-ios-w1-6", "swift-ios-w7-12", "swift-adv-w1-6", "swift-adv-w7-12"
@@ -67,7 +63,6 @@ document.addEventListener("DOMContentLoaded", () => {
     function updateProgressImage() {
         let completedLanguages = 0;
 
-        // Check each language section
         for (const [language, checkboxIds] of Object.entries(languageSections)) {
             const allChecked = checkboxIds.every(id => {
                 const checkbox = document.getElementById(id);
@@ -78,11 +73,9 @@ document.addEventListener("DOMContentLoaded", () => {
             }
         }
 
-        // Update image source based on completed languages
         progressImage.src = `lang${completedLanguages}.jpg`;
         progressImage.alt = `Completed ${completedLanguages} languages`;
     }
 
-    // Initial call to set the image based on loaded states
     updateProgressImage();
 });

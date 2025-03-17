@@ -2,7 +2,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const checkboxes = document.querySelectorAll("input[type='checkbox']");
     const progressImage = document.getElementById("language-progress");
 
-    // Updated language sections without C++
+    // Updated language sections with Docker and AWS added
     const languageSections = {
         javascript: [
             "js-w1-3", "js-w4-8", "node-w1-4", "node-w5-8", "js-proj-w1-4", "js-proj-w5-8"
@@ -21,10 +21,16 @@ document.addEventListener("DOMContentLoaded", () => {
         ],
         python: [
             "python-w1-52"
+        ],
+        docker: [
+            "docker-w1-2"
+        ],
+        aws: [
+            "aws-w1-4"
         ]
     };
 
-    // Load saved checkbox states and update image
+    // Rest of the code remains unchanged
     checkboxes.forEach(checkbox => {
         const savedState = localStorage.getItem(checkbox.id);
         if (savedState === "true") {
@@ -36,7 +42,6 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 
-    // Load and save textarea reflections
     const textareas = document.querySelectorAll("textarea");
     textareas.forEach(textarea => {
         const savedText = localStorage.getItem(textarea.id);
@@ -48,7 +53,6 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 
-    // Smooth scrolling for sidebar links
     const links = document.querySelectorAll(".sidebar nav ul li a");
     links.forEach(link => {
         link.addEventListener("click", (e) => {
@@ -59,7 +63,6 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 
-    // Function to update the progress image
     function updateProgressImage() {
         let completedLanguages = 0;
 

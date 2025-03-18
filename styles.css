@@ -199,3 +199,53 @@ body {
     box-shadow: 0 0 5px rgba(0, 122, 255, 0.3);
 }
 
+.dropdown {
+    position: relative;
+}
+
+.dropdown-toggle {
+    text-decoration: none;
+    color: #1d1d1f;
+    font-size: 14px;
+    padding: 8px 12px;
+    display: block;
+    border-radius: 6px;
+    transition: background-color 0.2s;
+    cursor: pointer;
+}
+
+.dropdown-toggle:hover {
+    background-color: #f0f0f0;
+}
+
+.dropdown-menu {
+    display: none;
+    position: static; /* Changed from absolute to static to stay within sidebar flow */
+    width: 100%; /* Full width of the sidebar */
+    background-color: #ffffff;
+    list-style: none;
+    padding: 5px 0 5px 20px; /* Indent slightly to the right */
+    margin: 0;
+}
+
+.dropdown:hover .dropdown-menu {
+    display: block;
+}
+
+.dropdown-menu li {
+    margin: 5px 0; /* Adjusted margin for tighter spacing */
+}
+
+.dropdown-menu li a {
+    text-decoration: none;
+    color: #1d1d1f;
+    font-size: 13px;
+    padding: 6px 12px; /* Slightly smaller padding for compactness */
+    display: block;
+    border-radius: 4px;
+    transition: background-color 0.2s;
+}
+
+.dropdown-menu li a:hover {
+    background-color: #f0f0f0;
+}

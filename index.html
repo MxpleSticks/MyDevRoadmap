@@ -20,9 +20,14 @@
                     <li><a href="#java">4. Java</a></li>
                     <li><a href="#swift">5. Swift</a></li>
                     <li><a href="#python">Python (Passive)</a></li>
-                    <li>— Technologies —</li>
-                    <li><a href="#docker">6. Docker</a></li>
-                    <li><a href="#aws">7. AWS</a></li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle">— Infrastructure —</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#docker">6. Docker</a></li>
+                            <li><a href="#aws">7. AWS</a></li>
+                            <li><a href="#redis">8. Redis</a></li>
+                        </ul>
+                    </li>
                     <li><a href="#after">After Roadmap</a></li>
                 </ul>
             </nav>
@@ -651,7 +656,7 @@
                 </div>
             </section>
 
-            <!-- New Docker Section -->
+            <!-- Docker Section -->
             <section id="docker">
                 <h2>6. Docker – 1-2 Weeks</h2>
                 <div class="section">
@@ -680,7 +685,7 @@
                 </div>
             </section>
 
-            <!-- New AWS Section -->
+            <!-- AWS Section -->
             <section id="aws">
                 <h2>7. AWS – 1 Month or Less</h2>
                 <div class="section">
@@ -705,6 +710,35 @@
                     <div class="reflection">
                         <h4>Reflection</h4>
                         <textarea id="aws-reflection" placeholder="What I learned / What challenged me / How I feel about my progress / Language Section Review / What to focus on next"></textarea>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Redis Section -->
+            <section id="redis">
+                <h2>8. Redis – 1-2 Weeks</h2>
+                <div class="section">
+                    <h3>In-Memory Data Store Basics</h3>
+                    <ul class="task-list">
+                        <li>
+                            <input type="checkbox" id="redis-w1-2">
+                            <label for="redis-w1-2">Week 1-2: Redis Fundamentals (Est. 10-15 hrs)</label>
+                            <div class="details-wrapper">
+                                <div class="details-container">
+                                    <button class="details-toggle">Details</button>
+                                    <div class="details-dropdown">
+                                        <p><strong>Topics:</strong> Redis architecture, key-value storage, data types (strings, lists, sets, hashes), basic commands, caching strategies, pub/sub messaging.</p>
+                                        <p><strong>Resources:</strong> <a href="https://redis.io/docs/getting-started/" target="_blank">Redis Getting Started</a>, <a href="https://university.redis.com/" target="_blank">Redis University</a>.</p>
+                                        <p><strong>Practice:</strong> Set up a local Redis instance, implement a simple caching layer for a Node.js app, and experiment with pub/sub messaging.</p>
+                                        <p><strong>Tip:</strong> Use `redis-cli` to interact with Redis directly and explore commands.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                    <div class="reflection">
+                        <h4>Reflection</h4>
+                        <textarea id="redis-reflection" placeholder="What I learned / What challenged me / How I feel about my progress / Language Section Review / What to focus on next"></textarea>
                     </div>
                 </div>
             </section>

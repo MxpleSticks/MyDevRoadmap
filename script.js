@@ -2,7 +2,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const checkboxes = document.querySelectorAll("input[type='checkbox']");
     const progressImage = document.getElementById("language-progress");
 
-    // Updated language sections with Docker and AWS added
+    // Updated language sections with Redis added
     const languageSections = {
         javascript: [
             "js-w1-3", "js-w4-8", "node-w1-4", "node-w5-8", "js-proj-w1-4", "js-proj-w5-8"
@@ -27,10 +27,13 @@ document.addEventListener("DOMContentLoaded", () => {
         ],
         aws: [
             "aws-w1-4"
+        ],
+        redis: [
+            "redis-w1-2"
         ]
     };
 
-    // Rest of the code remains unchanged
+    // Checkbox state persistence and progress update
     checkboxes.forEach(checkbox => {
         const savedState = localStorage.getItem(checkbox.id);
         if (savedState === "true") {
@@ -42,6 +45,7 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 
+    // Textarea state persistence
     const textareas = document.querySelectorAll("textarea");
     textareas.forEach(textarea => {
         const savedText = localStorage.getItem(textarea.id);
@@ -53,13 +57,16 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 
-    const links = document.querySelectorAll(".sidebar nav ul li a");
+    // Smooth scrolling for all sidebar links, including dropdown items
+    const links = document.querySelectorAll(".sidebar nav ul li a, .dropdown-menu li a");
     links.forEach(link => {
         link.addEventListener("click", (e) => {
             e.preventDefault();
             const targetId = link.getAttribute("href").substring(1);
             const targetSection = document.getElementById(targetId);
-            targetSection.scrollIntoView({ behavior: "smooth" });
+            if (targetSection) {
+                targetSection.scrollIntoView({ behavior: "smooth" });
+            }
         });
     });
 

@@ -249,3 +249,108 @@ body {
 .dropdown-menu li a:hover {
     background-color: #f0f0f0;
 }
+
+.task-list li {
+    display: flex;
+    align-items: center;
+    margin: 10px 0;
+    position: relative;
+    flex-wrap: wrap; /* Allow wrapping for badge */
+}
+
+.difficulty-badge {
+    margin-left: 10px;
+    padding: 3px 10px 3px 25px;  /* Added left padding for the dot */
+    border-radius: 8px;
+    font-size: 12px;
+    font-weight: 500;
+    display: inline-flex;
+    align-items: center;
+    position: relative;
+    background-color: #f8f9fa;
+    border: 1px solid #e0e0e0;
+    color: #495057;
+}
+
+/* Status dot positioning and base styles */
+.difficulty-badge::before {
+    content: '';
+    position: absolute;
+    left: 8px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    animation: pulse 2s infinite;
+}
+
+/* Pulse animation for the dots */
+@keyframes pulse {
+    0% {
+        opacity: 0.6;
+        transform: translateY(-50%) scale(0.9);
+    }
+    50% {
+        opacity: 1;
+        transform: translateY(-50%) scale(1.1);
+    }
+    100% {
+        opacity: 0.6;
+        transform: translateY(-50%) scale(0.9);
+    }
+}
+
+/* Specific styles for each difficulty level */
+.difficulty-badge.easy {
+    background-color: #f8f9fa;
+    color: #155724;
+}
+.difficulty-badge.easy::before {
+    background-color: #28a745;
+    box-shadow: 0 0 5px rgba(40, 167, 69, 0.5);
+}
+
+.difficulty-badge.medium {
+    background-color: #f8f9fa;
+    color: #856404;
+}
+.difficulty-badge.medium::before {
+    background-color: #ffc107;
+    box-shadow: 0 0 5px rgba(255, 193, 7, 0.5);
+}
+
+.difficulty-badge.hard {
+    background-color: #f8f9fa;
+    color: #721c24;
+}
+.difficulty-badge.hard::before {
+    background-color: #dc3545;
+    box-shadow: 0 0 5px rgba(220, 53, 69, 0.5);
+}
+
+/* Search bar styles */
+.search-container {
+    margin-bottom: 20px;
+}
+#search-bar {
+    width: 100%;
+    padding: 8px 12px;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    font-size: 14px;
+    box-sizing: border-box;
+    background-color: #fafafa;
+}
+#search-bar:focus {
+    outline: none;
+    border-color: #007aff;
+    box-shadow: 0 0 5px rgba(0, 122, 255, 0.3);
+}
+
+/* Adjust details-wrapper to account for badges */
+.details-wrapper {
+    position: relative;
+    margin-left: 25px;
+    flex: 1; /* Ensure it takes available space */
+}

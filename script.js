@@ -1,356 +1,157 @@
-body {
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f5f5f7;
-    color: #1d1d1f;
-}
+document.addEventListener("DOMContentLoaded", () => {
+    const checkboxes = document.querySelectorAll("input[type='checkbox']");
+    const progressImage = document.getElementById("language-progress");
+    const searchBar = document.getElementById("search-bar");
 
-.container {
-    display: flex;
-    height: 100vh;
-}
+    const languageSections = {
+        javascript: ["js-w1-3", "js-w4-8", "node-w1-4", "node-w5-8", "js-proj-w1-4", "js-proj-w5-8"],
+        postgresql: ["pg-w1-2", "pg-w3-4", "pg-int-w1-4", "pg-int-w5-8", "pg-adv-w1-4", "pg-adv-w5-8"],
+        ruby: ["ruby-w1-4", "rails-w1-4", "rails-w5-8", "ruby-adv-w1-4", "ruby-adv-w5-8"],
+        java: ["java-w1-4", "java-w5-8", "java-ent-w1-6", "java-ent-w7-12", "java-adv-w1-6", "java-adv-w7-12"],
+        swift: ["swift-w1-8", "swift-ios-w1-6", "swift-ios-w7-12", "swift-adv-w1-6", "swift-adv-w7-12"],
+        python: ["python-w1-52"],
+        docker: ["docker-w1-2"],
+        aws: ["aws-w1-4"],
+        redis: ["redis-w1-2"]
+    };
 
-.sidebar {
-    width: 250px;
-    background-color: #ffffff;
-    border-right: 1px solid #e0e0e0;
-    padding: 20px;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-    overflow-y: auto;
-    display: flex;
-    flex-direction: column; /* Ensure content stacks vertically */
-}
+    // Checkbox state persistence and progress update
+    checkboxes.forEach(checkbox => {
+        const savedState = localStorage.getItem(checkbox.id);
+        if (savedState === "true") {
+            checkbox.checked = true;
+        }
+        checkbox.addEventListener("change", (e) => {
+            localStorage.setItem(checkbox.id, checkbox.checked);
+            updateProgressImage();
+            if (e.target.checked) {
+                triggerConfetti(e.target);
+            }
+        });
+    });
 
-.sidebar h1 {
-    font-size: 20px;
-    font-weight: 600;
-    margin-bottom: 20px;
-}
+    // Textarea state persistence
+    const textareas = document.querySelectorAll("textarea");
+    textareas.forEach(textarea => {
+        const savedText = localStorage.getItem(textarea.id);
+        if (savedText) {
+            textarea.value = savedText;
+        }
+        textarea.addEventListener("input", () => {
+            localStorage.setItem(textarea.id, textarea.value);
+        });
+    });
 
-.sidebar nav ul {
-    list-style: none;
-    padding: 0;
-}
+    // Smooth scrolling for sidebar links
+    const links = document.querySelectorAll(".sidebar nav ul li a, .dropdown-menu li a");
+    links.forEach(link => {
+        link.addEventListener("click", (e) => {
+            e.preventDefault();
+            const targetId = link.getAttribute("href").substring(1);
+            const targetSection = document.getElementById(targetId);
+            if (targetSection) {
+                targetSection.scrollIntoView({ behavior: "smooth" });
+            }
+        });
+    });
 
-.sidebar nav ul li {
-    margin: 10px 0;
-}
+    // Search functionality
+    searchBar.addEventListener("input", (e) => {
+        const query = e.target.value.toLowerCase();
+        const sections = document.querySelectorAll(".section");
 
-.sidebar nav ul li a {
-    text-decoration: none;
-    color: #1d1d1f;
-    font-size: 14px;
-    padding: 8px 12px;
-    display: block;
-    border-radius: 6px;
-    transition: background-color 0.2s;
-}
+        sections.forEach(section => {
+            const sectionText = section.textContent.toLowerCase();
+            if (sectionText.includes(query)) {
+                section.style.display = "block";
+                section.scrollIntoView({ behavior: "smooth", block: "center" });
+            } else {
+                section.style.display = "none";
+            }
+        });
+    });
 
-.sidebar nav ul li a:hover {
-    background-color: #f0f0f0;
-}
+    function updateProgressImage() {
+        let completedLanguages = 0;
 
-/* New styles for the progress image */
-.progress-image {
-    margin-top: auto; /* Pushes the image to the bottom */
-    text-align: center;
-    padding-top: 20px;
-}
+        for (const [language, checkboxIds] of Object.entries(languageSections)) {
+            const allChecked = checkboxIds.every(id => {
+                const checkbox = document.getElementById(id);
+                return checkbox && checkbox.checked;
+            });
+            if (allChecked) {
+                completedLanguages++;
+            }
+        }
 
-.progress-image img {
-    max-width: 100%; /* Ensures image fits within sidebar width */
-    height: auto;
-    border-radius: 6px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-.content {
-    flex: 1;
-    padding: 30px;
-    overflow-y: auto;
-}
-
-.content h2 {
-    font-size: 24px;
-    font-weight: 600;
-    margin-bottom: 20px;
-}
-
-.section {
-    background-color: #ffffff;
-    padding: 20px;
-    border-radius: 10px;
-    margin-bottom: 20px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
-}
-
-.section h3 {
-    font-size: 18px;
-    font-weight: 500;
-    margin-bottom: 15px;
-}
-
-.task-list {
-    list-style: none;
-    padding: 0;
-}
-
-.task-list li {
-    display: flex;
-    align-items: center;
-    margin: 10px 0;
-    position: relative; /* Still needed for checkbox/label alignment */
-}
-
-.task-list input[type="checkbox"] {
-    margin-right: 10px;
-    accent-color: #007aff;
-}
-
-.task-list label {
-    font-size: 14px;
-    cursor: pointer;
-}
-
-/* New Styles for Details Button and Dropdown */
-.details-wrapper {
-    position: relative;
-    margin-left: 25px;
-}
-
-.details-container {
-    position: relative;
-    display: inline-block;
-}
-
-.details-toggle {
-    background: none;
-    border: none;
-    color: #007aff;
-    padding: 5px;
-    font-size: 13px;
-    cursor: pointer;
-    text-align: left;
-}
-
-.details-dropdown {
-    display: none;
-    position: absolute;
-    top: 100%;
-    left: 0;
-    width: 300px;
-    background-color: #ffffff;
-    border: 1px solid #e0e0e0;
-    border-radius: 6px;
-    padding: 10px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-    z-index: 1000;
-    font-size: 13px;
-}
-
-.details-container:hover .details-dropdown {
-    display: block;
-}
-
-.details-dropdown p {
-    margin: 5px 0;
-}
-
-.details-dropdown a {
-    color: #007aff;
-    text-decoration: none;
-}
-
-.details-dropdown a:hover {
-    text-decoration: underline;
-}
-
-.task-list input[type="checkbox"]:checked + label {
-    text-decoration: line-through;
-    color: #86868b;
-}
-
-.reflection {
-    margin-top: 15px;
-}
-
-.reflection h4 {
-    font-size: 16px;
-    font-weight: 500;
-    margin-bottom: 10px;
-}
-
-.reflection textarea {
-    width: 100%;
-    min-height: 100px;
-    padding: 10px;
-    border: 1px solid #e0e0e0;
-    border-radius: 6px;
-    font-size: 14px;
-    resize: vertical;
-    background-color: #fafafa;
-    box-sizing: border-box;
-}
-
-.reflection textarea:focus {
-    outline: none;
-    border-color: #007aff;
-    box-shadow: 0 0 5px rgba(0, 122, 255, 0.3);
-}
-
-.dropdown {
-    position: relative;
-}
-
-.dropdown-toggle {
-    text-decoration: none;
-    color: #1d1d1f;
-    font-size: 14px;
-    padding: 8px 12px;
-    display: block;
-    border-radius: 6px;
-    transition: background-color 0.2s;
-    cursor: pointer;
-}
-
-.dropdown-toggle:hover {
-    background-color: #f0f0f0;
-}
-
-.dropdown-menu {
-    display: none;
-    position: static; /* Changed from absolute to static to stay within sidebar flow */
-    width: 100%; /* Full width of the sidebar */
-    background-color: #ffffff;
-    list-style: none;
-    padding: 5px 0 5px 20px; /* Indent slightly to the right */
-    margin: 0;
-}
-
-.dropdown:hover .dropdown-menu {
-    display: block;
-}
-
-.dropdown-menu li {
-    margin: 5px 0; /* Adjusted margin for tighter spacing */
-}
-
-.dropdown-menu li a {
-    text-decoration: none;
-    color: #1d1d1f;
-    font-size: 13px;
-    padding: 6px 12px; /* Slightly smaller padding for compactness */
-    display: block;
-    border-radius: 4px;
-    transition: background-color 0.2s;
-}
-
-.dropdown-menu li a:hover {
-    background-color: #f0f0f0;
-}
-
-.task-list li {
-    display: flex;
-    align-items: center;
-    margin: 10px 0;
-    position: relative;
-    flex-wrap: wrap; /* Allow wrapping for badge */
-}
-
-.difficulty-badge {
-    margin-left: 10px;
-    padding: 3px 10px 3px 25px;  /* Added left padding for the dot */
-    border-radius: 8px;
-    font-size: 12px;
-    font-weight: 500;
-    display: inline-flex;
-    align-items: center;
-    position: relative;
-    background-color: #f8f9fa;
-    border: 1px solid #e0e0e0;
-    color: #495057;
-}
-
-/* Status dot positioning and base styles */
-.difficulty-badge::before {
-    content: '';
-    position: absolute;
-    left: 8px;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 8px;
-    height: 8px;
-    border-radius: 50%;
-    animation: pulse 2s infinite;
-}
-
-/* Pulse animation for the dots */
-@keyframes pulse {
-    0% {
-        opacity: 0.6;
-        transform: translateY(-50%) scale(0.9);
+        progressImage.src = `lang${completedLanguages}.jpg`;
+        progressImage.alt = `Completed ${completedLanguages} languages`;
     }
-    50% {
-        opacity: 1;
-        transform: translateY(-50%) scale(1.1);
+
+    // Confetti animation function (unchanged)
+    function triggerConfetti(checkbox) {
+        const rect = checkbox.getBoundingClientRect();
+        const x = rect.left + rect.width / 2;
+        const y = rect.top + rect.height / 2;
+
+        const canvas = document.createElement("canvas");
+        canvas.style.position = "fixed";
+        canvas.style.top = "0";
+        canvas.style.left = "0";
+        canvas.style.width = "100%";
+        canvas.style.height = "100%";
+        canvas.style.pointerEvents = "none";
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+        document.body.appendChild(canvas);
+
+        const ctx = canvas.getContext("2d");
+        const confetti = [];
+        const colors = ["#ff0", "#f00", "#0f0", "#00f", "#f0f"];
+
+        for (let i = 0; i < 100; i++) {
+            confetti.push({
+                x: x,
+                y: y,
+                size: Math.random() * 5 + 2,
+                speedX: (Math.random() - 0.5) * 6,
+                speedY: Math.random() * -8 - 2,
+                color: colors[Math.floor(Math.random() * colors.length)],
+                rotation: Math.random() * 360,
+                spin: (Math.random() - 0.5) * 4
+            });
+        }
+
+        function animate() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            let activeConfetti = false;
+
+            confetti.forEach((piece, index) => {
+                piece.x += piece.speedX;
+                piece.y += piece.speedY;
+                piece.speedY += 0.2; // Gravity
+                piece.rotation += piece.spin;
+
+                if (piece.y < canvas.height) {
+                    activeConfetti = true;
+                    ctx.save();
+                    ctx.translate(piece.x, piece.y);
+                    ctx.rotate(piece.rotation * Math.PI / 180);
+                    ctx.fillStyle = piece.color;
+                    ctx.fillRect(-piece.size / 2, -piece.size / 2, piece.size, piece.size);
+                    ctx.restore();
+                }
+            });
+
+            if (activeConfetti) {
+                requestAnimationFrame(animate);
+            } else {
+                document.body.removeChild(canvas);
+            }
+        }
+
+        animate();
     }
-    100% {
-        opacity: 0.6;
-        transform: translateY(-50%) scale(0.9);
-    }
-}
 
-/* Specific styles for each difficulty level */
-.difficulty-badge.easy {
-    background-color: #f8f9fa;
-    color: #155724;
-}
-.difficulty-badge.easy::before {
-    background-color: #28a745;
-    box-shadow: 0 0 5px rgba(40, 167, 69, 0.5);
-}
-
-.difficulty-badge.medium {
-    background-color: #f8f9fa;
-    color: #856404;
-}
-.difficulty-badge.medium::before {
-    background-color: #ffc107;
-    box-shadow: 0 0 5px rgba(255, 193, 7, 0.5);
-}
-
-.difficulty-badge.hard {
-    background-color: #f8f9fa;
-    color: #721c24;
-}
-.difficulty-badge.hard::before {
-    background-color: #dc3545;
-    box-shadow: 0 0 5px rgba(220, 53, 69, 0.5);
-}
-
-/* Search bar styles */
-.search-container {
-    margin-bottom: 20px;
-}
-#search-bar {
-    width: 100%;
-    padding: 8px 12px;
-    border: 1px solid #e0e0e0;
-    border-radius: 8px;
-    font-size: 14px;
-    box-sizing: border-box;
-    background-color: #fafafa;
-}
-#search-bar:focus {
-    outline: none;
-    border-color: #007aff;
-    box-shadow: 0 0 5px rgba(0, 122, 255, 0.3);
-}
-
-/* Adjust details-wrapper to account for badges */
-.details-wrapper {
-    position: relative;
-    margin-left: 25px;
-    flex: 1; /* Ensure it takes available space */
-}
+    updateProgressImage();
+});
